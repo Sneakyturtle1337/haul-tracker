@@ -1,0 +1,58 @@
+type UpdateTripInput = 
+ record {
+   date: opt text;
+   dropTime: opt text;
+   dropoffLocation: opt text;
+   id: TripId;
+   loadId: opt text;
+   pickupLocation: opt text;
+   pickupNumber: opt text;
+   pickupTime: opt text;
+   pickupTrailerNumber: opt text;
+   totalMiles: opt float64;
+ };
+type TripStatus = 
+ variant {
+   active;
+   completed;
+ };
+type TripId = nat;
+type Trip = 
+ record {
+   date: text;
+   dateCompleted: opt Timestamp;
+   dateCreated: Timestamp;
+   dropTime: text;
+   dropoffLocation: text;
+   earnings: float64;
+   id: TripId;
+   loadId: text;
+   pickupLocation: text;
+   pickupNumber: text;
+   pickupTime: text;
+   pickupTrailerNumber: text;
+   status: TripStatus;
+   totalMiles: float64;
+ };
+type Timestamp = int;
+type CreateTripInput = 
+ record {
+   date: text;
+   dropTime: text;
+   dropoffLocation: text;
+   loadId: text;
+   pickupLocation: text;
+   pickupNumber: text;
+   pickupTime: text;
+   pickupTrailerNumber: text;
+   totalMiles: float64;
+ };
+service : {
+  completeTrip: (id: TripId) -> (bool);
+  createTrip: (input: CreateTripInput) -> (Trip);
+  deleteTrip: (id: TripId) -> (bool);
+  getActiveTrip: () -> (opt Trip) query;
+  getCompletedTrips: () -> (vec Trip) query;
+  getTripById: (id: TripId) -> (opt Trip) query;
+  updateTrip: (input: UpdateTripInput) -> (bool);
+}

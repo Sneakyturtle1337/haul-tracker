@@ -1,0 +1,20 @@
+{
+  "overview": "A mobile-friendly app for truckers to track their current load details and calculate real-time profit per mile on every trip. Keeps a full history of completed trips with sortable records.",
+  "features": [
+    "Active trip dashboard with live profit per mile calculation",
+    "Manual entry for cargo, miles, revenue, MPG, and fuel price",
+    "Complete trip action that saves to history",
+    "Sortable trip history table with all key metrics",
+    "Trip detail view for full breakdown of any past trip",
+    "Responsive layout optimized for use in a truck cab"
+  ],
+  "category": "productivity",
+  "tags": [
+    "trucking",
+    "logistics",
+    "profit-tracking",
+    "trip-log",
+    "productivity"
+  ],
+  "last_updated": "2026-04-21T21:53:42.357Z"
+}

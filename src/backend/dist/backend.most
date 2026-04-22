@@ -1,0 +1,57 @@
+// Version: 3.0.0
+type List__415060402<T> = List__790383201<T>;
+type List__790383201<T> =
+  {
+    var blockIndex : Nat__490723111;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__490723111
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type OldTripInternal__990384031 =
+  {
+    var cargoDescription : Text;
+    var cargoWeight : Float;
+    var dateCompleted : ?Int;
+    dateCreated : Int;
+    var dropoffLocation : Text;
+    var fuelPricePerGallon : Float;
+    id : Nat;
+    var mpg : Float;
+    var pickupLocation : Text;
+    var revenue : Float;
+    var status : OldTripStatus__788399522;
+    var totalMiles : Float
+  };
+type OldTripStatus__788399522 = {#active; #completed};
+type Timestamp__149031103 = Int;
+type TripId__1004112766 = Nat;
+type TripInternal__572657184 =
+  {
+    var date : Text;
+    var dateCompleted : ?Timestamp__149031103;
+    dateCreated : Timestamp__149031103;
+    var dropTime : Text;
+    var dropoffLocation : Text;
+    id : TripId__1004112766;
+    var loadId : Text;
+    var pickupLocation : Text;
+    var pickupNumber : Text;
+    var pickupTime : Text;
+    var pickupTrailerNumber : Text;
+    var status : TripStatus__1045153417;
+    var totalMiles : Float
+  };
+type TripStatus__1045153417 = {#active; #completed};
+actor ({
+  in var nextTripId : Nat;
+  in trips : List__415060402<OldTripInternal__990384031>
+}, {
+  stable var nextTripId : Nat;
+  stable trips :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?TripInternal__572657184]];
+      var elementIndex : Nat__490723111
+    }
+}) ;
